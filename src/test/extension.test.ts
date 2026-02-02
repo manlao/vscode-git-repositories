@@ -7,9 +7,7 @@ suite("Git Repositories Extension Test Suite", () => {
   );
 
   test("Extension should be present and loadable", () => {
-    const ext = vscode.extensions.getExtension(
-      "undefined_publisher.git-repositories",
-    );
+    const ext = vscode.extensions.getExtension("manlao.git-repositories");
 
     assert.ok(ext, "Extension should be present");
   });
