@@ -25,7 +25,19 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - id: generate-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.PAT_APP_ID }}
+          private-key: ${{ secrets.PAT_APP_PRIVATE_KEY }}
+          owner: ${{ github.repository_owner }}
+          permission-contents: write
+          permission-issues: write
+          permission-pull-requests: write
+          permission-packages: read
       - uses: actions/checkout@v6
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
       - uses: actions/setup-node@v6
         with:
           node-version: 22.x
@@ -34,4 +46,4 @@ jobs:
       - run: npm install
       - run: npm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
