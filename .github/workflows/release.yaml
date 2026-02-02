@@ -32,4 +32,4 @@ jobs:
           check-latest: true
           cache: npm
       - run: npm install
-      - run: npm release
+      - run: npm run release
