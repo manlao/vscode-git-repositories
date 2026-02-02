@@ -1,5 +1,4 @@
 import * as vscode from "vscode";
-import * as l10n from "@vscode/l10n";
 import { onConfigurationChange } from "./config";
 import { RepositoryStorage } from "./storage/repositoryStorage";
 import {
@@ -22,7 +21,7 @@ async function scanAndStore(
   } catch (error) {
     console.error("Failed to scan repositories:", error);
 
-    vscode.window.showErrorMessage(l10n.t("error.scanFailed"));
+    vscode.window.showErrorMessage(vscode.l10n.t("error.scanFailed"));
   }
 }
 
@@ -71,7 +70,7 @@ export async function activate(context: vscode.ExtensionContext) {
       await vscode.window.withProgress(
         {
           location: vscode.ProgressLocation.Notification,
-          title: l10n.t("progress.scanning"),
+          title: vscode.l10n.t("progress.scanning"),
           cancellable: false,
         },
         async () => {
@@ -169,7 +168,7 @@ export async function activate(context: vscode.ExtensionContext) {
       const repositories = await storage.getRepositories();
 
       if (repositories.length === 0) {
-        vscode.window.showInformationMessage(l10n.t("info.noRepositories"));
+        vscode.window.showInformationMessage(vscode.l10n.t("info.noRepositories"));
 
         return;
       }
@@ -254,7 +253,7 @@ export async function activate(context: vscode.ExtensionContext) {
               if (worktree.branch) {
                 descriptionParts.push(worktree.branch);
               } else if (worktree.isDetached) {
-                descriptionParts.push(l10n.t("worktree.detached"));
+                descriptionParts.push(vscode.l10n.t("worktree.detached"));
               }
 
               if (worktree.commitHash) {
@@ -292,7 +291,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
       if (localRepos.length > 0) {
         items.push({
-          label: l10n.t("quickPick.separator.local"),
+          label: vscode.l10n.t("quickPick.separator.local"),
           kind: vscode.QuickPickItemKind.Separator,
         });
 
@@ -304,7 +303,7 @@ export async function activate(context: vscode.ExtensionContext) {
               if (worktree.branch) {
                 descriptionParts.push(worktree.branch);
               } else if (worktree.isDetached) {
-                descriptionParts.push(l10n.t("worktree.detached"));
+                descriptionParts.push(vscode.l10n.t("worktree.detached"));
               }
 
               if (worktree.commitHash) {
@@ -341,7 +340,7 @@ export async function activate(context: vscode.ExtensionContext) {
       }
 
       const selected = await vscode.window.showQuickPick(items, {
-        placeHolder: l10n.t("quickPick.placeholder"),
+        placeHolder: vscode.l10n.t("quickPick.placeholder"),
         matchOnDescription: true,
         matchOnDetail: true,
       });
