@@ -1,0 +1,17 @@
+{
+  "displayName": "Git-Repositorys",
+  "description": "Git-Repository-Manager",
+  "viewsContainer.title": "Repositorys",
+  "views.repositories.name": "Repositorys",
+  "views.repositories.contextualTitle": "Repositorys",
+  "command.refreshRepositories.title": "Git-Repositorys: Aktualisieren",
+  "command.openRepository.title": "Repository öffnen",
+  "command.openRepositoryInNewWindow.title": "Repository in neuem Fenster öffnen",
+  "command.openWorktree.title": "Arbeitsbaum öffnen",
+  "command.openWorktreeInNewWindow.title": "Arbeitsbaum in neuem Fenster öffnen",
+  "command.showQuickPick.title": "Git-Repositorys: Schnell öffnen",
+  "config.title": "Git-Repositorys",
+  "config.paths.description": "Liste der Verzeichnispfade zum Scannen nach Git-Repositorys. **Sie müssen mindestens einen Pfad konfigurieren, um mit dem Scannen zu beginnen.**\n\nUnterstützt Umgebungsvariablen wie `$HOME`, `$USER`, `${HOME}` usw.\n\nBeispiele:\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **Tipp:** Verwenden Sie die Glob-Muster in `ignorePaths`, um unerwünschte Verzeichnisse auszuschließen.",
+  "config.ignorePaths.description": "Glob-Muster für Pfade, die beim Scannen nach Git-Repositorys ignoriert werden sollen.\n\nUnterstützt Standard-Glob-Syntax:\n- `*` entspricht allen Zeichen außer `/`\n- `**` entspricht einer beliebigen Anzahl von Verzeichnissen\n- `?` entspricht einem einzelnen Zeichen\n- `{a,b}` entspricht a oder b\n- `[abc]` entspricht a, b oder c\n\nBeispiele:\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",
+  "config.showRepositoryCount.description": "Zeige Repository-Anzahl-Badge auf Baumelementen an."
+}

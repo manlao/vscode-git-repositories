@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "Failed to scan repositories",
+  "progress.scanning": "Scanning for Git repositories...",
+  "info.noRepositories": "No repositories found. Configure repository paths in settings.",
+  "quickPick.placeholder": "Select a repository or worktree to open",
+  "quickPick.separator.local": "Local",
+  "worktree.detached": "detached",
+  "treeNode.emptyState.label": "No repository paths configured",
+  "treeNode.emptyState.tooltip": "Click to open settings and configure repository paths",
+  "treeNode.localGroup.label": "No Remote",
+  "treeNode.description.repos": "repos",
+  "treeNode.badge.repoCount": "{0} repositories",
+  "treeNode.tooltip.path": "Path",
+  "treeNode.tooltip.branch": "Branch",
+  "treeNode.tooltip.remote": "Remote",
+  "treeNode.branch.unknown": "unknown",
+  "command.openRepository": "Open Repository",
+  "command.openSettings": "Open Settings",
+  "command.openWorktree": "Open Worktree"
+}

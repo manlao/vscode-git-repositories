@@ -1,0 +1,17 @@
+{
+  "displayName": "Git 저장소",
+  "description": "Git 저장소 관리자",
+  "viewsContainer.title": "저장소",
+  "views.repositories.name": "저장소",
+  "views.repositories.contextualTitle": "저장소",
+  "command.refreshRepositories.title": "Git 저장소: 새로 고침",
+  "command.openRepository.title": "저장소 열기",
+  "command.openRepositoryInNewWindow.title": "새 창에서 저장소 열기",
+  "command.openWorktree.title": "작업 트리 열기",
+  "command.openWorktreeInNewWindow.title": "새 창에서 작업 트리 열기",
+  "command.showQuickPick.title": "Git 저장소: 빠른 열기",
+  "config.title": "Git 저장소",
+  "config.paths.description": "Git 저장소를 스캔할 디렉터리 경로 목록입니다. **스캔을 시작하려면 최소 하나의 경로를 구성해야 합니다.**\n\n`$HOME`, `$USER`, `${HOME}` 등의 환경 변수를 지원합니다.\n\n예제:\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **팁:** 원치 않는 디렉터리를 제외하려면 `ignorePaths`의 glob 패턴을 사용하세요.",
+  "config.ignorePaths.description": "Git 저장소를 스캔할 때 무시할 경로의 Glob 패턴입니다.\n\n표준 glob 구문 지원:\n- `*`는 `/`를 제외한 모든 문자와 일치\n- `**`는 임의 개수의 디렉터리와 일치\n- `?`는 단일 문자와 일치\n- `{a,b}`는 a 또는 b와 일치\n- `[abc]`는 a, b 또는 c와 일치\n\n예제:\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",
+  "config.showRepositoryCount.description": "트리 항목에 저장소 개수 배지를 표시합니다."
+}

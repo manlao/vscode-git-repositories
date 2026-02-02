@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "Fehler beim Scannen der Repositories",
+  "progress.scanning": "Git-Repositories werden gescannt...",
+  "info.noRepositories": "Keine Repositories gefunden. Konfigurieren Sie Repository-Pfade in den Einstellungen.",
+  "quickPick.placeholder": "Wählen Sie ein Repository oder Worktree zum Öffnen",
+  "quickPick.separator.local": "Lokal",
+  "worktree.detached": "losgelöst",
+  "treeNode.emptyState.label": "Keine Repository-Pfade konfiguriert",
+  "treeNode.emptyState.tooltip": "Klicken Sie, um die Einstellungen zu öffnen und Repository-Pfade zu konfigurieren",
+  "treeNode.localGroup.label": "Kein Remote",
+  "treeNode.description.repos": "Repositories",
+  "treeNode.badge.repoCount": "{0} Repositories",
+  "treeNode.tooltip.path": "Pfad",
+  "treeNode.tooltip.branch": "Branch",
+  "treeNode.tooltip.remote": "Remote",
+  "treeNode.branch.unknown": "unbekannt",
+  "command.openRepository": "Repository öffnen",
+  "command.openSettings": "Einstellungen öffnen",
+  "command.openWorktree": "Worktree öffnen"
+}

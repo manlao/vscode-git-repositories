@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "Не удалось просканировать репозитории",
+  "progress.scanning": "Сканирование Git-репозиториев...",
+  "info.noRepositories": "Репозитории не найдены. Настройте пути к репозиториям в настройках.",
+  "quickPick.placeholder": "Выберите репозиторий или рабочее дерево для открытия",
+  "quickPick.separator.local": "Локальные",
+  "worktree.detached": "отделённое",
+  "treeNode.emptyState.label": "Пути к репозиториям не настроены",
+  "treeNode.emptyState.tooltip": "Нажмите, чтобы открыть настройки и настроить пути к репозиториям",
+  "treeNode.localGroup.label": "Без удалённого репозитория",
+  "treeNode.description.repos": "репозиториев",
+  "treeNode.badge.repoCount": "{0} репозиториев",
+  "treeNode.tooltip.path": "Путь",
+  "treeNode.tooltip.branch": "Ветка",
+  "treeNode.tooltip.remote": "Удалённый",
+  "treeNode.branch.unknown": "неизвестно",
+  "command.openRepository": "Открыть репозиторий",
+  "command.openSettings": "Открыть настройки",
+  "command.openWorktree": "Открыть рабочее дерево"
+}

@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "扫描仓库失败",
+  "progress.scanning": "正在扫描 Git 仓库...",
+  "info.noRepositories": "未找到仓库。请在设置中配置仓库路径。",
+  "quickPick.placeholder": "选择要打开的仓库或工作树",
+  "quickPick.separator.local": "本地",
+  "worktree.detached": "游离状态",
+  "treeNode.emptyState.label": "未配置仓库路径",
+  "treeNode.emptyState.tooltip": "点击打开设置并配置仓库路径",
+  "treeNode.localGroup.label": "无远程仓库",
+  "treeNode.description.repos": "个仓库",
+  "treeNode.badge.repoCount": "{0} 个仓库",
+  "treeNode.tooltip.path": "路径",
+  "treeNode.tooltip.branch": "分支",
+  "treeNode.tooltip.remote": "远程",
+  "treeNode.branch.unknown": "未知",
+  "command.openRepository": "打开仓库",
+  "command.openSettings": "打开设置",
+  "command.openWorktree": "打开工作树"
+}

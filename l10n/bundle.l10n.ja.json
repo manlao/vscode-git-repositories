@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "リポジトリのスキャンに失敗しました",
+  "progress.scanning": "Git リポジトリをスキャン中...",
+  "info.noRepositories": "リポジトリが見つかりませんでした。設定でリポジトリパスを構成してください。",
+  "quickPick.placeholder": "開くリポジトリまたはワークツリーを選択",
+  "quickPick.separator.local": "ローカル",
+  "worktree.detached": "デタッチ状態",
+  "treeNode.emptyState.label": "リポジトリパスが構成されていません",
+  "treeNode.emptyState.tooltip": "クリックして設定を開き、リポジトリパスを構成します",
+  "treeNode.localGroup.label": "リモートなし",
+  "treeNode.description.repos": "個のリポジトリ",
+  "treeNode.badge.repoCount": "{0} 個のリポジトリ",
+  "treeNode.tooltip.path": "パス",
+  "treeNode.tooltip.branch": "ブランチ",
+  "treeNode.tooltip.remote": "リモート",
+  "treeNode.branch.unknown": "不明",
+  "command.openRepository": "リポジトリを開く",
+  "command.openSettings": "設定を開く",
+  "command.openWorktree": "ワークツリーを開く"
+}

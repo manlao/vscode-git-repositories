@@ -1,0 +1,17 @@
+{
+  "displayName": "Git 仓库管理器",
+  "description": "Git 仓库管理器",
+  "viewsContainer.title": "仓库",
+  "views.repositories.name": "仓库",
+  "views.repositories.contextualTitle": "仓库",
+  "command.refreshRepositories.title": "Git 仓库：刷新",
+  "command.openRepository.title": "打开仓库",
+  "command.openRepositoryInNewWindow.title": "在新窗口中打开仓库",
+  "command.openWorktree.title": "打开工作树",
+  "command.openWorktreeInNewWindow.title": "在新窗口中打开工作树",
+  "command.showQuickPick.title": "Git 仓库：快速打开",
+  "config.title": "Git 仓库",
+  "config.paths.description": "要扫描 Git 仓库的目录路径列表。**您必须至少配置一个路径才能开始扫描。**\n\n支持环境变量，如 `$HOME`、`$USER`、`${HOME}` 等。\n\n示例：\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **提示：** 使用 `ignorePaths` 中的 glob 模式来排除不需要的目录。",
+  "config.ignorePaths.description": "扫描 Git 仓库时要忽略的路径 glob 模式。\n\n支持标准 glob 语法：\n- `*` 匹配除 `/` 外的任何字符\n- `**` 匹配任意数量的目录\n- `?` 匹配单个字符\n- `{a,b}` 匹配 a 或 b\n- `[abc]` 匹配 a、b 或 c\n\n示例：\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",
+  "config.showRepositoryCount.description": "在树节点上显示仓库数量徽章。"
+}

@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "掃描儲存庫失敗",
+  "progress.scanning": "正在掃描 Git 儲存庫...",
+  "info.noRepositories": "未找到儲存庫。請在設定中配置儲存庫路徑。",
+  "quickPick.placeholder": "選擇要開啟的儲存庫或工作樹",
+  "quickPick.separator.local": "本機",
+  "worktree.detached": "分離狀態",
+  "treeNode.emptyState.label": "未配置儲存庫路徑",
+  "treeNode.emptyState.tooltip": "點擊開啟設定並配置儲存庫路徑",
+  "treeNode.localGroup.label": "無遠端儲存庫",
+  "treeNode.description.repos": "個儲存庫",
+  "treeNode.badge.repoCount": "{0} 個儲存庫",
+  "treeNode.tooltip.path": "路徑",
+  "treeNode.tooltip.branch": "分支",
+  "treeNode.tooltip.remote": "遠端",
+  "treeNode.branch.unknown": "未知",
+  "command.openRepository": "開啟儲存庫",
+  "command.openSettings": "開啟設定",
+  "command.openWorktree": "開啟工作樹"
+}

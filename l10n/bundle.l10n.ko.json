@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "저장소 스캔 실패",
+  "progress.scanning": "Git 저장소 스캔 중...",
+  "info.noRepositories": "저장소를 찾을 수 없습니다. 설정에서 저장소 경로를 구성하세요.",
+  "quickPick.placeholder": "열 저장소 또는 작업 트리 선택",
+  "quickPick.separator.local": "로컬",
+  "worktree.detached": "분리됨",
+  "treeNode.emptyState.label": "저장소 경로가 구성되지 않음",
+  "treeNode.emptyState.tooltip": "클릭하여 설정을 열고 저장소 경로를 구성합니다",
+  "treeNode.localGroup.label": "원격 없음",
+  "treeNode.description.repos": "개 저장소",
+  "treeNode.badge.repoCount": "{0}개 저장소",
+  "treeNode.tooltip.path": "경로",
+  "treeNode.tooltip.branch": "브랜치",
+  "treeNode.tooltip.remote": "원격",
+  "treeNode.branch.unknown": "알 수 없음",
+  "command.openRepository": "저장소 열기",
+  "command.openSettings": "설정 열기",
+  "command.openWorktree": "작업 트리 열기"
+}

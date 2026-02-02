@@ -1,0 +1,17 @@
+{
+  "displayName": "Git リポジトリ",
+  "description": "Git リポジトリマネージャー",
+  "viewsContainer.title": "リポジトリ",
+  "views.repositories.name": "リポジトリ",
+  "views.repositories.contextualTitle": "リポジトリ",
+  "command.refreshRepositories.title": "Git リポジトリ：更新",
+  "command.openRepository.title": "リポジトリを開く",
+  "command.openRepositoryInNewWindow.title": "新しいウィンドウでリポジトリを開く",
+  "command.openWorktree.title": "ワークツリーを開く",
+  "command.openWorktreeInNewWindow.title": "新しいウィンドウでワークツリーを開く",
+  "command.showQuickPick.title": "Git リポジトリ：クイックオープン",
+  "config.title": "Git リポジトリ",
+  "config.paths.description": "Git リポジトリをスキャンするディレクトリパスのリスト。**スキャンを開始するには、少なくとも1つのパスを設定する必要があります。**\n\n`$HOME`、`$USER`、`${HOME}` などの環境変数をサポートしています。\n\n例：\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **ヒント：** 不要なディレクトリを除外するには、`ignorePaths` の glob パターンを使用してください。",
+  "config.ignorePaths.description": "Git リポジトリをスキャンする際に無視するパスの Glob パターン。\n\n標準の glob 構文をサポート：\n- `*` は `/` を除く任意の文字と一致\n- `**` は任意の数のディレクトリと一致\n- `?` は単一の文字と一致\n- `{a,b}` は a または b と一致\n- `[abc]` は a、b、または c と一致\n\n例：\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",
+  "config.showRepositoryCount.description": "ツリー項目にリポジトリ数バッジを表示します。"
+}

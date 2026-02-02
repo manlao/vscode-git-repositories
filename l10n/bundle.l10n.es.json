@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "Error al escanear repositorios",
+  "progress.scanning": "Escaneando repositorios Git...",
+  "info.noRepositories": "No se encontraron repositorios. Configure las rutas de repositorio en la configuración.",
+  "quickPick.placeholder": "Seleccione un repositorio o worktree para abrir",
+  "quickPick.separator.local": "Local",
+  "worktree.detached": "separado",
+  "treeNode.emptyState.label": "No hay rutas de repositorio configuradas",
+  "treeNode.emptyState.tooltip": "Haga clic para abrir la configuración y configurar las rutas de repositorio",
+  "treeNode.localGroup.label": "Sin remoto",
+  "treeNode.description.repos": "repositorios",
+  "treeNode.badge.repoCount": "{0} repositorios",
+  "treeNode.tooltip.path": "Ruta",
+  "treeNode.tooltip.branch": "Rama",
+  "treeNode.tooltip.remote": "Remoto",
+  "treeNode.branch.unknown": "desconocido",
+  "command.openRepository": "Abrir repositorio",
+  "command.openSettings": "Abrir configuración",
+  "command.openWorktree": "Abrir worktree"
+}

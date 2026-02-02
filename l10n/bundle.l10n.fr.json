@@ -1,0 +1,20 @@
+{
+  "error.scanFailed": "Échec de l'analyse des dépôts",
+  "progress.scanning": "Analyse des dépôts Git en cours...",
+  "info.noRepositories": "Aucun dépôt trouvé. Configurez les chemins des dépôts dans les paramètres.",
+  "quickPick.placeholder": "Sélectionnez un dépôt ou un worktree à ouvrir",
+  "quickPick.separator.local": "Local",
+  "worktree.detached": "détaché",
+  "treeNode.emptyState.label": "Aucun chemin de dépôt configuré",
+  "treeNode.emptyState.tooltip": "Cliquez pour ouvrir les paramètres et configurer les chemins de dépôt",
+  "treeNode.localGroup.label": "Aucun dépôt distant",
+  "treeNode.description.repos": "dépôts",
+  "treeNode.badge.repoCount": "{0} dépôts",
+  "treeNode.tooltip.path": "Chemin",
+  "treeNode.tooltip.branch": "Branche",
+  "treeNode.tooltip.remote": "Distant",
+  "treeNode.branch.unknown": "inconnu",
+  "command.openRepository": "Ouvrir le dépôt",
+  "command.openSettings": "Ouvrir les paramètres",
+  "command.openWorktree": "Ouvrir le worktree"
+}

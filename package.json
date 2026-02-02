@@ -1,8 +1,10 @@
 {
   "name": "git-repositories",
-  "displayName": "Git Repositories",
-  "description": "Git Repository Manager",
-  "version": "0.0.1",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "publisher": "manlao",
+  "version": "1.0.0",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.108.1"
   },
@@ -12,12 +14,121 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "git-repositories",
+          "title": "%viewsContainer.title%",
+          "icon": "$(folder-library)"
+        }
+      ]
+    },
+    "views": {
+      "git-repositories": [
+        {
+          "id": "git-repositories.repositories",
+          "name": "%views.repositories.name%",
+          "icon": "$(folder-library)",
+          "contextualTitle": "%views.repositories.contextualTitle%"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "git-repositories.refreshRepositories",
+          "when": "view == git-repositories.repositories",
+          "group": "navigation@1"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "git-repositories.openRepositoryInNewWindow",
+          "when": "view == git-repositories.repositories && viewItem == repository",
+          "group": "inline"
+        },
+        {
+          "command": "git-repositories.openWorktreeInNewWindow",
+          "when": "view == git-repositories.repositories && viewItem == mainWorktree",
+          "group": "inline"
+        },
+        {
+          "command": "git-repositories.openWorktreeInNewWindow",
+          "when": "view == git-repositories.repositories && viewItem == worktree",
+          "group": "inline"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "git-repositories.helloWorld",
-        "title": "Hello World"
+        "command": "git-repositories.refreshRepositories",
+        "title": "%command.refreshRepositories.title%",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "git-repositories.openRepository",
+        "title": "%command.openRepository.title%",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "git-repositories.openRepositoryInNewWindow",
+        "title": "%command.openRepositoryInNewWindow.title%",
+        "icon": "$(multiple-windows)"
+      },
+      {
+        "command": "git-repositories.openWorktree",
+        "title": "%command.openWorktree.title%"
+      },
+      {
+        "command": "git-repositories.openWorktreeInNewWindow",
+        "title": "%command.openWorktreeInNewWindow.title%",
+        "icon": "$(multiple-windows)"
+      },
+      {
+        "command": "git-repositories.showQuickPick",
+        "title": "%command.showQuickPick.title%",
+        "icon": "$(search)"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "git-repositories.showQuickPick",
+        "key": "ctrl+alt+p",
+        "mac": "cmd+alt+p"
+      }
+    ],
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "git-repositories.paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "markdownDescription": "%config.paths.description%"
+        },
+        "git-repositories.ignorePaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/node_modules/**",
+            "**/.vscode/**",
+            "**/dist/**",
+            "**/build/**",
+            "**/target/**"
+          ],
+          "markdownDescription": "%config.ignorePaths.description%"
+        },
+        "git-repositories.showRepositoryCount": {
+          "type": "boolean",
+          "default": false,
+          "markdownDescription": "%config.showRepositoryCount.description%"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -31,18 +142,41 @@
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "check-types": "tsc --noEmit",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "release": "lets-release",
+    "deploy": "vsce publish"
   },
   "devDependencies": {
-    "@types/vscode": "^1.108.1",
+    "@lets-release/commit-analyzer": "^6.0.1",
+    "@lets-release/github": "^6.1.0",
+    "@lets-release/npm": "^7.0.0",
+    "@lets-release/release-notes-generator": "^6.0.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "typescript-eslint": "^8.52.0",
-    "eslint": "^9.39.2",
-    "esbuild": "^0.27.2",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.9.3",
+    "@types/vscode": "^1.108.1",
     "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
-  }
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.27.2",
+    "eslint": "^9.39.2",
+    "lets-release": "^8.0.1",
+    "npm-run-all": "^4.1.5",
+    "sharp": "^0.34.5",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.52.0"
+  },
+  "dependencies": {
+    "@vscode/l10n": "^0.0.18",
+    "minimatch": "^10.1.1",
+    "simple-git": "^3.30.0"
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/manlao/vscode-git-repositories/issues",
+    "email": "1523671+manlao@users.noreply.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manlao/vscode-git-repositories.git"
+  },
+  "homepage": "https://github.com/manlao/vscode-git-repositories/blob/main/README.md"
 }

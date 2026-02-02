@@ -1,0 +1,17 @@
+{
+  "displayName": "Git Repositories",
+  "description": "Git Repository Manager",
+  "viewsContainer.title": "Repositories",
+  "views.repositories.name": "Repositories",
+  "views.repositories.contextualTitle": "Repositories",
+  "command.refreshRepositories.title": "Git Repositories: Refresh",
+  "command.openRepository.title": "Open Repository",
+  "command.openRepositoryInNewWindow.title": "Open Repository in New Window",
+  "command.openWorktree.title": "Open Worktree",
+  "command.openWorktreeInNewWindow.title": "Open Worktree in New Window",
+  "command.showQuickPick.title": "Git Repositories: Quick Open",
+  "config.title": "Git Repositories",
+  "config.paths.description": "List of directory paths to scan for Git repositories. Supports environment variable expansion (e.g., `$HOME`, `~`).",
+  "config.ignorePaths.description": "Glob patterns for paths to ignore when scanning (e.g., `**/node_modules/**`).",
+  "config.showRepositoryCount.description": "Show repository count badges on tree items."
+}
