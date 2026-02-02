@@ -5,7 +5,7 @@ const options = {
       plugins: [
         "@lets-release/commit-analyzer",
         "@lets-release/release-notes-generator",
-        "@lets-release/npm",
+        ["@lets-release/npm", { skipPublishing: true }],
         "@lets-release/github",
       ],
     },
