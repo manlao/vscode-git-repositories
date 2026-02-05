@@ -3,6 +3,16 @@ on:
     types:
       - created
 
+env:
+  FORCE_COLOR: 1
+  NPM_CONFIG_COLOR: always
+  YARN_ENABLE_IMMUTABLE_INSTALLS: false
+  NODE_OPTIONS: "--max-old-space-size=4096 --max-semi-space-size=4096"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   publish:
     runs-on: ubuntu-latest
