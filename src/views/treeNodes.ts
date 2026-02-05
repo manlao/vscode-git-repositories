@@ -171,7 +171,10 @@ export class OwnerNode extends vscode.TreeItem {
 
 export class LocalGroupNode extends vscode.TreeItem {
   constructor(public readonly repositories: RepositoryInfo[]) {
-    super(vscode.l10n.t("treeNode.localGroup.label"), vscode.TreeItemCollapsibleState.Expanded);
+    super(
+      vscode.l10n.t("treeNode.localGroup.label"),
+      vscode.TreeItemCollapsibleState.Expanded,
+    );
 
     this.id = "no-remote-group";
     this.iconPath = new vscode.ThemeIcon("folder");
@@ -211,7 +214,7 @@ export class RepositoryNode extends vscode.TreeItem {
     this.command = {
       command: "git-repositories.openRepository",
       title: vscode.l10n.t("command.openRepository"),
-      arguments: [this],
+      arguments: [repository.path],
     };
   }
 
@@ -223,7 +226,9 @@ export class RepositoryNode extends vscode.TreeItem {
     ];
 
     if (this.repository.remotes.length > 0) {
-      lines.push(`${vscode.l10n.t("treeNode.tooltip.remote")}: ${this.repository.remotes[0].fetchUrl || ""}`);
+      lines.push(
+        `${vscode.l10n.t("treeNode.tooltip.remote")}: ${this.repository.remotes[0].fetchUrl || ""}`,
+      );
     }
 
     return lines.join("\n");
@@ -253,7 +258,7 @@ export class WorktreeNode extends vscode.TreeItem {
     this.command = {
       command: "git-repositories.openWorktree",
       title: vscode.l10n.t("command.openWorktree"),
-      arguments: [this],
+      arguments: [worktree.path],
     };
   }
 

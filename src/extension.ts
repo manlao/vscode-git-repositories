@@ -82,15 +82,19 @@ export async function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(refreshCommand);
 
-  // Register open repository command
   const openRepoCommand = vscode.commands.registerCommand(
     "git-repositories.openRepository",
     async (
-      node: RepositoryNode,
+      nodeOrPath: RepositoryNode | string,
       nodes?: RepositoryNode[],
       event?: { altKey?: boolean; metaKey?: boolean },
     ) => {
-      if (!node || !node.repository) {
+      const repoPath =
+        typeof nodeOrPath === "string"
+          ? nodeOrPath
+          : nodeOrPath?.repository?.path;
+
+      if (!repoPath) {
         return;
       }
 
@@ -98,7 +102,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
       await vscode.commands.executeCommand(
         "vscode.openFolder",
-        vscode.Uri.file(node.repository.path),
+        vscode.Uri.file(repoPath),
         openInNewWindow,
       );
     },
@@ -110,11 +114,16 @@ export async function activate(context: vscode.ExtensionContext) {
   const openWorktreeCommand = vscode.commands.registerCommand(
     "git-repositories.openWorktree",
     async (
-      node: WorktreeNode,
+      nodeOrPath: WorktreeNode | string,
       nodes?: WorktreeNode[],
       event?: { altKey?: boolean; metaKey?: boolean },
     ) => {
-      if (!node || !node.worktree) {
+      const worktreePath =
+        typeof nodeOrPath === "string"
+          ? nodeOrPath
+          : nodeOrPath?.worktree?.path;
+
+      if (!worktreePath) {
         return;
       }
 
@@ -122,7 +131,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
       await vscode.commands.executeCommand(
         "vscode.openFolder",
-        vscode.Uri.file(node.worktree.path),
+        vscode.Uri.file(worktreePath),
         openInNewWindow,
       );
     },
@@ -168,7 +177,9 @@ export async function activate(context: vscode.ExtensionContext) {
       const repositories = await storage.getRepositories();
 
       if (repositories.length === 0) {
-        vscode.window.showInformationMessage(vscode.l10n.t("info.noRepositories"));
+        vscode.window.showInformationMessage(
+          vscode.l10n.t("info.noRepositories"),
+        );
 
         return;
       }

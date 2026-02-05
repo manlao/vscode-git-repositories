@@ -273,11 +273,19 @@ export class RepositoryScanner {
               wt.commitHash = log.latest.hash.substring(0, 8);
               wt.commitMessage = log.latest.message.split("\n")[0];
             }
-          } catch (error) {
-            console.warn(
-              `[Scanner] Could not get commit info for worktree ${wt.path}:`,
-              error,
-            );
+          } catch (error: unknown) {
+            const errorMessage =
+              error instanceof Error ? error.message : String(error);
+
+            if (errorMessage.includes("does not have any commits yet")) {
+              wt.commitHash = undefined;
+              wt.commitMessage = undefined;
+            } else {
+              console.warn(
+                `[Scanner] Could not get commit info for worktree ${wt.path}:`,
+                error,
+              );
+            }
           }
         }
       } catch (error) {
