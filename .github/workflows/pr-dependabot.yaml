@@ -26,6 +26,7 @@ jobs:
   test:
     uses: ./.github/workflows/test.yaml
   dependabot:
+    needs: test
     runs-on: ubuntu-latest
     if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'manlao/vscode-git-repositories'
     steps:
