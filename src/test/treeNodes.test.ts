@@ -267,7 +267,7 @@ suite("TreeNodes Test Suite", () => {
   });
 
   suite("LocalGroupNode", () => {
-    test("should create node with repository count", () => {
+    test("should create collapsed node when no current workspace", () => {
       const repos = [
         createMockRepository("/path/to/repo1", "repo1"),
         createMockRepository("/path/to/repo2", "repo2"),
@@ -277,6 +277,19 @@ suite("TreeNodes Test Suite", () => {
       assert.strictEqual(node.label, "treeNode.localGroup.label");
       assert.ok(node.resourceUri);
       assert.strictEqual(node.resourceUri.scheme, "git-repositories");
+      assert.strictEqual(
+        node.collapsibleState,
+        vscode.TreeItemCollapsibleState.Collapsed,
+      );
+    });
+
+    test("should create expanded node when contains current workspace", () => {
+      const repos = [
+        createMockRepository("/path/to/repo1", "repo1"),
+        createMockRepository("/path/to/repo2", "repo2"),
+      ];
+      const node = new LocalGroupNode(repos, "/path/to/repo1");
+
       assert.strictEqual(
         node.collapsibleState,
         vscode.TreeItemCollapsibleState.Expanded,

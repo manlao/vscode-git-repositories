@@ -170,10 +170,19 @@ export class OwnerNode extends vscode.TreeItem {
 }
 
 export class LocalGroupNode extends vscode.TreeItem {
-  constructor(public readonly repositories: RepositoryInfo[]) {
+  constructor(
+    public readonly repositories: RepositoryInfo[],
+    currentWorkspacePath?: string,
+  ) {
+    const shouldExpand = containsCurrentWorkspace(
+      repositories,
+      currentWorkspacePath,
+    );
     super(
       vscode.l10n.t("treeNode.localGroup.label"),
-      vscode.TreeItemCollapsibleState.Expanded,
+      shouldExpand
+        ? vscode.TreeItemCollapsibleState.Expanded
+        : vscode.TreeItemCollapsibleState.Collapsed,
     );
 
     this.id = "no-remote-group";

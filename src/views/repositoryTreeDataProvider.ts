@@ -185,7 +185,10 @@ export class RepositoryTreeDataProvider
     }
 
     if (reposWithoutRemote.length > 0) {
-      const localNode = new LocalGroupNode(reposWithoutRemote);
+      const localNode = new LocalGroupNode(
+        reposWithoutRemote,
+        this.currentWorkspacePath,
+      );
 
       if (getShowRepositoryCount()) {
         this.decorationProvider.setCount(
