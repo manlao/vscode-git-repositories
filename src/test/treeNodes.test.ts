@@ -191,6 +191,7 @@ suite("TreeNodes Test Suite", () => {
       assert.ok(node.iconPath);
       const icon = node.iconPath as vscode.ThemeIcon;
       assert.strictEqual(icon.id, "repo-selected");
+      assert.strictEqual(node.contextValue, "repositoryOpen");
     });
 
     test("should use repo icon when current workspace does not match", () => {
@@ -200,6 +201,7 @@ suite("TreeNodes Test Suite", () => {
       assert.ok(node.iconPath);
       const icon = node.iconPath as vscode.ThemeIcon;
       assert.strictEqual(icon.id, "repo");
+      assert.strictEqual(node.contextValue, "repository");
     });
   });
 
@@ -243,6 +245,7 @@ suite("TreeNodes Test Suite", () => {
 
       assert.ok(node.iconPath);
       const icon = node.iconPath as vscode.ThemeIcon;
+      assert.strictEqual(node.contextValue, "worktreeOpen");
       assert.strictEqual(icon.id, "git-branch");
     });
 
@@ -259,6 +262,7 @@ suite("TreeNodes Test Suite", () => {
       assert.ok(node.iconPath);
       const icon = node.iconPath as vscode.ThemeIcon;
       assert.strictEqual(icon.id, "worktree");
+      assert.strictEqual(node.contextValue, "worktree");
     });
   });
 
@@ -277,6 +281,50 @@ suite("TreeNodes Test Suite", () => {
         node.collapsibleState,
         vscode.TreeItemCollapsibleState.Expanded,
       );
+    });
+  });
+
+  suite("ContextValue for Current Workspace", () => {
+    test("RepositoryNode should have different contextValue based on workspace match", () => {
+      const repo = createMockRepository("/path/to/repo", "test-repo");
+
+      const closedNode = new RepositoryNode(repo, "/different/path");
+      assert.strictEqual(closedNode.contextValue, "repository");
+
+      const openNode = new RepositoryNode(repo, "/path/to/repo");
+      assert.strictEqual(openNode.contextValue, "repositoryOpen");
+    });
+
+    test("WorktreeNode should have different contextValue based on workspace match", () => {
+      const worktree: WorktreeInfo = {
+        name: "feature",
+        path: "/path/to/worktree",
+        branch: "feature-branch",
+        isMain: false,
+        isDetached: false,
+      };
+
+      const closedNode = new WorktreeNode(worktree, "/different/path");
+      assert.strictEqual(closedNode.contextValue, "worktree");
+
+      const openNode = new WorktreeNode(worktree, "/path/to/worktree");
+      assert.strictEqual(openNode.contextValue, "worktreeOpen");
+    });
+
+    test("Main worktree should have correct contextValue based on workspace match", () => {
+      const mainWorktree: WorktreeInfo = {
+        name: "main",
+        path: "/path/to/main",
+        branch: "main",
+        isMain: true,
+        isDetached: false,
+      };
+
+      const closedNode = new WorktreeNode(mainWorktree, "/different/path");
+      assert.strictEqual(closedNode.contextValue, "mainWorktree");
+
+      const openNode = new WorktreeNode(mainWorktree, "/path/to/main");
+      assert.strictEqual(openNode.contextValue, "mainWorktreeOpen");
     });
   });
 });

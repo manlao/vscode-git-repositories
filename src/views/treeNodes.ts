@@ -207,7 +207,7 @@ export class RepositoryNode extends vscode.TreeItem {
     this.iconPath = new vscode.ThemeIcon(
       isCurrentlyOpen ? "repo-selected" : "repo",
     );
-    this.contextValue = "repository";
+    this.contextValue = isCurrentlyOpen ? "repositoryOpen" : "repository";
     this.tooltip = this.createTooltip();
     this.description = repository.currentBranch || "";
     this.resourceUri = vscode.Uri.file(repository.path);
@@ -252,7 +252,11 @@ export class WorktreeNode extends vscode.TreeItem {
       this.iconPath = new vscode.ThemeIcon("worktree");
     }
 
-    this.contextValue = worktree.isMain ? "mainWorktree" : "worktree";
+    if (isCurrentlyOpen) {
+      this.contextValue = worktree.isMain ? "mainWorktreeOpen" : "worktreeOpen";
+    } else {
+      this.contextValue = worktree.isMain ? "mainWorktree" : "worktree";
+    }
     this.tooltip = `${worktree.path}\n${vscode.l10n.t("treeNode.tooltip.branch")}: ${worktree.branch || vscode.l10n.t("worktree.detached")}`;
     this.description = this.createDescription();
     this.command = {
