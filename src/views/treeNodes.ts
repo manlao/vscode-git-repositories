@@ -266,7 +266,7 @@ export class WorktreeNode extends vscode.TreeItem {
     } else {
       this.contextValue = worktree.isMain ? "mainWorktree" : "worktree";
     }
-    this.tooltip = `${worktree.path}\n${vscode.l10n.t("treeNode.tooltip.branch")}: ${worktree.branch || vscode.l10n.t("worktree.detached")}`;
+    this.tooltip = `${vscode.l10n.t("treeNode.tooltip.path")}: ${worktree.path}\n${vscode.l10n.t("treeNode.tooltip.branch")}: ${worktree.branch || vscode.l10n.t("worktree.detached")}`;
     this.description = this.createDescription();
     this.command = {
       command: "git-repositories.openWorktree",
