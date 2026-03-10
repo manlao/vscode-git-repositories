@@ -169,7 +169,7 @@
   "dependencies": {
     "@vscode/l10n": "^0.0.18",
     "minimatch": "^10.2.4",
-    "simple-git": "^3.30.0"
+    "simple-git": "^3.32.3"
   },
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
