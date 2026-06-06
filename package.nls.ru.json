@@ -10,6 +10,8 @@
   "command.openWorktree.title": "Открыть рабочее дерево",
   "command.openWorktreeInNewWindow.title": "Открыть рабочее дерево в новом окне",
   "command.showQuickPick.title": "Git-репозитории: Быстрое открытие",
+  "command.expandAll.title": "Git-репозитории: Развернуть все",
+  "command.collapseAll.title": "Git-репозитории: Свернуть все",
   "config.title": "Git-репозитории",
   "config.paths.description": "Список путей к каталогам для сканирования Git-репозиториев. **Необходимо настроить хотя бы один путь для начала сканирования.**\n\nПоддерживает переменные окружения, такие как `$HOME`, `$USER`, `${HOME}` и т.д.\n\nПримеры:\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **Совет:** Используйте шаблоны glob в `ignorePaths` для исключения нежелательных каталогов.",
   "config.ignorePaths.description": "Шаблоны Glob для путей, которые следует игнорировать при сканировании Git-репозиториев.\n\nПоддерживает стандартный синтаксис glob:\n- `*` соответствует любым символам, кроме `/`\n- `**` соответствует любому количеству каталогов\n- `?` соответствует одному символу\n- `{a,b}` соответствует a или b\n- `[abc]` соответствует a, b или c\n\nПримеры:\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",

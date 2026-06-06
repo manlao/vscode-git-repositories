@@ -10,6 +10,8 @@
   "command.openWorktree.title": "Ouvrir l'arbre de travail",
   "command.openWorktreeInNewWindow.title": "Ouvrir l'arbre de travail dans une nouvelle fenêtre",
   "command.showQuickPick.title": "Dépôts Git : Ouverture rapide",
+  "command.expandAll.title": "Dépôts Git : Tout développer",
+  "command.collapseAll.title": "Dépôts Git : Tout réduire",
   "config.title": "Dépôts Git",
   "config.paths.description": "Liste des chemins de répertoires à analyser pour les dépôts Git. **Vous devez configurer au moins un chemin pour commencer l'analyse.**\n\nPrend en charge les variables d'environnement comme `$HOME`, `$USER`, `${HOME}`, etc.\n\nExemples :\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **Astuce :** Utilisez les modèles glob dans `ignorePaths` pour exclure les répertoires indésirables.",
   "config.ignorePaths.description": "Modèles Glob pour les chemins à ignorer lors de l'analyse des dépôts Git.\n\nPrend en charge la syntaxe glob standard :\n- `*` correspond à tous les caractères sauf `/`\n- `**` correspond à un nombre quelconque de répertoires\n- `?` correspond à un seul caractère\n- `{a,b}` correspond à a ou b\n- `[abc]` correspond à a, b ou c\n\nExemples :\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",

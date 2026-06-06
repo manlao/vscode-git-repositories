@@ -10,6 +10,8 @@
   "command.openWorktree.title": "開啟工作樹",
   "command.openWorktreeInNewWindow.title": "在新視窗中開啟工作樹",
   "command.showQuickPick.title": "Git 儲存庫：快速開啟",
+  "command.expandAll.title": "Git 儲存庫：全部展開",
+  "command.collapseAll.title": "Git 儲存庫：全部摺疊",
   "config.title": "Git 儲存庫",
   "config.paths.description": "要掃描 Git 儲存庫的目錄路徑清單。**您必須至少設定一個路徑才能開始掃描。**\n\n支援環境變數，如 `$HOME`、`$USER`、`${HOME}` 等。\n\n範例：\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **提示：** 使用 `ignorePaths` 中的 glob 模式來排除不需要的目錄。",
   "config.ignorePaths.description": "掃描 Git 儲存庫時要忽略的路徑的 Glob 模式。\n\n支援標準 glob 語法：\n- `*` 匹配除 `/` 之外的任何字元\n- `**` 匹配任意數量的目錄\n- `?` 匹配單一字元\n- `{a,b}` 匹配 a 或 b\n- `[abc]` 匹配 a、b 或 c\n\n範例：\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",

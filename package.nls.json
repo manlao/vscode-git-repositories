@@ -10,6 +10,8 @@
   "command.openWorktree.title": "Open Worktree",
   "command.openWorktreeInNewWindow.title": "Open Worktree in New Window",
   "command.showQuickPick.title": "Git Repositories: Quick Open",
+  "command.expandAll.title": "Git Repositories: Expand All",
+  "command.collapseAll.title": "Git Repositories: Collapse All",
   "config.title": "Git Repositories",
   "config.paths.description": "List of directory paths to scan for Git repositories. Supports environment variable expansion (e.g., `$HOME`, `~`).",
   "config.ignorePaths.description": "Glob patterns for paths to ignore when scanning (e.g., `**/node_modules/**`).",

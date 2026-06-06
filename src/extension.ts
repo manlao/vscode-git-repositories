@@ -48,11 +48,16 @@ export async function activate(context: vscode.ExtensionContext) {
     "git-repositories.repositories",
     {
       treeDataProvider,
-      showCollapseAll: true,
     },
   );
 
   context.subscriptions.push(treeView);
+
+  vscode.commands.executeCommand(
+    "setContext",
+    "git-repositories.expanded",
+    false,
+  );
 
   // Scan repositories on activation
   await scanAndStore(scanner, storage);
@@ -81,6 +86,34 @@ export async function activate(context: vscode.ExtensionContext) {
   );
 
   context.subscriptions.push(refreshCommand);
+
+  const expandAllCommand = vscode.commands.registerCommand(
+    "git-repositories.expandAll",
+    () => {
+      treeDataProvider.expandAll();
+      vscode.commands.executeCommand(
+        "setContext",
+        "git-repositories.expanded",
+        true,
+      );
+    },
+  );
+
+  context.subscriptions.push(expandAllCommand);
+
+  const collapseAllCommand = vscode.commands.registerCommand(
+    "git-repositories.collapseAll",
+    () => {
+      treeDataProvider.collapseAll();
+      vscode.commands.executeCommand(
+        "setContext",
+        "git-repositories.expanded",
+        false,
+      );
+    },
+  );
+
+  context.subscriptions.push(collapseAllCommand);
 
   const openRepoCommand = vscode.commands.registerCommand(
     "git-repositories.openRepository",

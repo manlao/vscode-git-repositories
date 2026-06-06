@@ -10,6 +10,8 @@
   "command.openWorktree.title": "Abrir árbol de trabajo",
   "command.openWorktreeInNewWindow.title": "Abrir árbol de trabajo en nueva ventana",
   "command.showQuickPick.title": "Repositorios Git: Apertura rápida",
+  "command.expandAll.title": "Repositorios Git: Expandir todo",
+  "command.collapseAll.title": "Repositorios Git: Contraer todo",
   "config.title": "Repositorios Git",
   "config.paths.description": "Lista de rutas de directorios para escanear en busca de repositorios Git. **Debe configurar al menos una ruta para comenzar el escaneo.**\n\nAdmite variables de entorno como `$HOME`, `$USER`, `${HOME}`, etc.\n\nEjemplos:\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **Consejo:** Use los patrones glob en `ignorePaths` para excluir directorios no deseados.",
   "config.ignorePaths.description": "Patrones Glob para rutas a ignorar al escanear repositorios Git.\n\nAdmite sintaxis glob estándar:\n- `*` coincide con cualquier carácter excepto `/`\n- `**` coincide con cualquier número de directorios\n- `?` coincide con un solo carácter\n- `{a,b}` coincide con a o b\n- `[abc]` coincide con a, b o c\n\nEjemplos:\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",

@@ -32,6 +32,25 @@ export class RepositoryTreeDataProvider
   private currentWorkspacePath: string | undefined;
   private decorationProvider: RepositoryDecorationProvider;
 
+  /**
+   * Appended to node ids (as `#<generation>`) when expansion must be forced.
+   * VSCode persists expansion state by id, so changing the id is the only
+   * reliable way to make it re-read collapsibleState on refresh.
+   */
+  private generation = 0;
+
+  /**
+   * One-shot request to force every collapsible node open/closed. Applies only
+   * while it matches the current generation, so it is released on the next
+   * plain refresh, preserving the user's manual expand/collapse choices.
+   */
+  private forcedExpansion:
+    | { generation: number; mode: "expand" | "collapse" }
+    | undefined;
+
+  // Remembers each node's original id so the suffix is never applied twice.
+  private baseNodeIds = new WeakMap<vscode.TreeItem, string>();
+
   constructor(
     private storage: RepositoryStorage,
     decorationProvider: RepositoryDecorationProvider,
@@ -49,7 +68,7 @@ export class RepositoryTreeDataProvider
     const workspaceSubscription = vscode.workspace.onDidChangeWorkspaceFolders(
       () => {
         this.updateCurrentWorkspace();
-        this.refresh();
+        this.refresh({ bumpGeneration: true });
       },
     );
 
@@ -83,7 +102,18 @@ export class RepositoryTreeDataProvider
   /**
    * Trigger a refresh of the tree view.
    */
-  refresh(): void {
+  refresh(options?: {
+    bumpGeneration?: boolean;
+    force?: "expand" | "collapse";
+  }): void {
+    if (options?.bumpGeneration) {
+      this.generation += 1;
+    }
+
+    this.forcedExpansion = options?.force
+      ? { generation: this.generation, mode: options.force }
+      : undefined;
+
     // Clear decorations if the setting is disabled
     if (!getShowRepositoryCount()) {
       this.decorationProvider.clear();
@@ -92,11 +122,51 @@ export class RepositoryTreeDataProvider
     this._onDidChangeTreeData.fire();
   }
 
+  expandAll(): void {
+    this.refresh({ bumpGeneration: true, force: "expand" });
+  }
+
+  collapseAll(): void {
+    this.refresh({ bumpGeneration: true, force: "collapse" });
+  }
+
   /**
    * Get the TreeItem representation of an element.
    */
   getTreeItem(element: RepositoryTreeNode): vscode.TreeItem {
+    const baseId = this.getBaseNodeId(element);
+
+    if (baseId !== undefined && this.generation > 0) {
+      element.id = `${baseId}#${this.generation}`;
+    }
+
+    if (
+      element.collapsibleState !== vscode.TreeItemCollapsibleState.None &&
+      this.forcedExpansion?.generation === this.generation
+    ) {
+      element.collapsibleState =
+        this.forcedExpansion.mode === "expand"
+          ? vscode.TreeItemCollapsibleState.Expanded
+          : vscode.TreeItemCollapsibleState.Collapsed;
+    }
+
     return element;
+  }
+
+  private getBaseNodeId(element: vscode.TreeItem): string | undefined {
+    const remembered = this.baseNodeIds.get(element);
+
+    if (remembered !== undefined) {
+      return remembered;
+    }
+
+    if (element.id === undefined) {
+      return undefined;
+    }
+
+    this.baseNodeIds.set(element, element.id);
+
+    return element.id;
   }
 
   /**

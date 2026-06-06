@@ -10,6 +10,8 @@
   "command.openWorktree.title": "Arbeitsbaum öffnen",
   "command.openWorktreeInNewWindow.title": "Arbeitsbaum in neuem Fenster öffnen",
   "command.showQuickPick.title": "Git-Repositorys: Schnell öffnen",
+  "command.expandAll.title": "Git-Repositorys: Alle erweitern",
+  "command.collapseAll.title": "Git-Repositorys: Alle reduzieren",
   "config.title": "Git-Repositorys",
   "config.paths.description": "Liste der Verzeichnispfade zum Scannen nach Git-Repositorys. **Sie müssen mindestens einen Pfad konfigurieren, um mit dem Scannen zu beginnen.**\n\nUnterstützt Umgebungsvariablen wie `$HOME`, `$USER`, `${HOME}` usw.\n\nBeispiele:\n```json\n[\n  \"$HOME/projects\",\n  \"$HOME/work\",\n  \"/Users/username/repos\"\n]\n```\n\n💡 **Tipp:** Verwenden Sie die Glob-Muster in `ignorePaths`, um unerwünschte Verzeichnisse auszuschließen.",
   "config.ignorePaths.description": "Glob-Muster für Pfade, die beim Scannen nach Git-Repositorys ignoriert werden sollen.\n\nUnterstützt Standard-Glob-Syntax:\n- `*` entspricht allen Zeichen außer `/`\n- `**` entspricht einer beliebigen Anzahl von Verzeichnissen\n- `?` entspricht einem einzelnen Zeichen\n- `{a,b}` entspricht a oder b\n- `[abc]` entspricht a, b oder c\n\nBeispiele:\n```json\n[\n  \"**/node_modules/**\",\n  \"**/.*/**\",\n  \"**/temp/**\",\n  \"**/.cache/**\",\n  \"/Users/username/private/**\"\n]\n```",
